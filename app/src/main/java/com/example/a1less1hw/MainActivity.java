@@ -18,13 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private EditText etUserName;
     private EditText etPassword;
     private TextView tvAttempts;
+    private  TextView tvNeedAccount;
     private Button btnLogin;
+    private TextView tvSignUp;
     boolean isValid = false;
     private int counter = 5;
     private TextView visibilityOfPass;
 
-    private final String USERNAME = "Makhabat";
-    private final String PASSWORD = "Admin123";
+    private  static final String USERNAME = "Makhabat";
+    private static final String PASSWORD = "Admin123";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         tvAttempts = findViewById(R.id.tvAttempts);
         btnLogin = findViewById(R.id.btnLogin);
+        tvSignUp = findViewById(R.id.tvSignUp);
+        tvNeedAccount = findViewById(R.id.tvNeedAccount);
         visibilityOfPass = findViewById(R.id.visibilityOfPass);
 
         visibilityOfPass.setOnClickListener(view -> {
@@ -78,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+        });
+
+        tvSignUp.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+            startActivity(intent);
         });
 
     }
